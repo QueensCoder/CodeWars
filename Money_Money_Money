@@ -1,0 +1,46 @@
+"""Mr. Scrooge has a sum of money 'P' that wants to invest, 
+and he wants to know how many years 'Y' this sum has to be kept in the bank in order for this sum of money to amount to 'D'.
+
+The sum is kept for 'Y' years in the bank where interest 'I' is paid yearly, and the new sum is re-invested yearly after paying tax 'T'
+
+Note that the principal is not taxed but only the year's accrued interest
+
+Example:
+
+  Let P be the Principal = 1000.00      
+  Let I be the Interest Rate = 0.05      
+  Let T be the Tax Rate = 0.18      
+  Let D be the Desired Sum = 1100.00
+
+
+After 1st Year -->
+  P = 1041.00
+After 2nd Year -->
+  P = 1083.86
+After 3rd Year -->
+  P = 1128.30
+Thus Mr. Scrooge has to wait for 3 years for the initial pricipal to ammount to 
+the desired sum.
+
+Your task is to complete the method provided and return the number of years 'Y' as a whole in order for 
+Mr. Scrooge to get the desired sum.
+
+Assumptions : Assume that Desired Principal 'D' is always greater than the initial principal
+, however it is best to take into consideration that if the Desired Principal'D' is equal to Principal 'P' this should return 0 Years."""
+
+"""The Breakdown, principal the amount put in, interest is what is return every year, tax is deducted from interest ONLY, and desired is 
+the amount we want our principal to be by the end of our investment. If the principal is == to desired then years is ZERO. For these 
+type of problems with a lot of simple math you sure do your calculations away from your boolean logic or comparators."""
+
+def calculate_years(principal,interest,tax,desired):
+  years = 0
+  x = principal * interest #we need to figure out this first to makes our code easier to read
+  y = x * tax              # and then we figure this out
+  
+  if principal == desired:
+    return 0
+  
+  while principal < desired:
+      principal = principal + x - y
+      years += 1
+    return years
