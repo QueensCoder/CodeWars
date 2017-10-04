@@ -44,3 +44,21 @@ def calculate_years(principal,interest,tax,desired):
       principal = principal + x - y
       years += 1
     return years
+
+OR
+
+
+ """this example we do the calculations in our logic to shorten our function, not recommended for beginners"""
+ 
+def calculate_years(principal,interest,tax,desired):
+  years = 0
+  if principal == desired:
+    return years
+  
+  while principal < desired:
+    principal += (interest * principal) * (1-tax) # this means principal = principal + (interest * principal) * (1-tax)
+    years += 1
+  return years
+  """you can calculate the interest per year by  doing interest * principal and then multiply that by (1-tax)
+  1-tax is brillaint because it saves time by multiplying  the two instead of having to calculate and minus."""
+
