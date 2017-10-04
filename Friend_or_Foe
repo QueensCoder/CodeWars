@@ -1,0 +1,29 @@
+"""This function iterates through a list of names. Any name that is not 4 characters long is considered a foe. The characters must be
+    letters and not integers. This will be solved in two ways: one using list comphrehension and two using a for loop. First we must
+    figure out what conditions we will need to solve this."""
+    
+def friend_or_foe(names):
+  
+  """list compherehension allows for us to create a list without using the .append() method, this is useful for 
+    one liner due to the simplicity of the problem. First we see if the length of a friend is exactly 4 using 'len' and '=='.
+    Then we add another condition using 'and'to say if friend has characters only in the alphabet. If both conditions are met 
+    the name is added to the friends list"""
+  
+  friends_list = [friend for friend in names if len(friend) == 4 and friend.isaplha() == True]
+  return friends_list
+  
+ names = ['adam', 4, 'omar', 'tommy','jade', 'max','a',56,'tweety']
+ """We only want to return the names that are exactly 4 letters and only in the alphabet(no numbers)"""
+  
+def friend_or_foe_part_two(names):
+  friends_list = []
+  for i in names:
+    if len(i) == 4 and i.isalpha() == True:
+      friends_list.append(i)
+    return friends_list
+    
+"""Over here produces the same exact result as using list comp but this style makes it simpler to read for beginners.
+  first we iterate through the list of names then  for each name in names we set the condtion of the length has to be exactly 4
+  and each character has to be in the alphabet. this function can be changed or modified to search for name of different length by 
+  playing with comparators or other built in functions"""
+    
