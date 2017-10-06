@@ -1,0 +1,26 @@
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+Note: If the number is a multiple of both 3 and 5, only count it once.
+"""This problem they want you to add numbers in any range if the number is divisible by 3 or 5. If the range is 9 the numbers
+   that you can add to the sum are 3,5,6,9......... 1,2,4,7,8 are not divisble by 3 or 5. In order to solve this we need to use the
+   % operator which is similar to divide but it tells you if there is a remainder. for example 3 % 2 = 1.....why?
+   3 divided by 2 gives you 1.5 normally but with modulo (%) it gives you 1 because there is a remainder of 1. Using modulo 
+   lets you know if a number is odd or even or if a number is divisible by a specific number."""
+  
+def solution(num):
+  for i in range(num):
+    summ = 0
+    if i % 3 == 0 or i % 5 == 0:
+      summ += i
+  return summ
+  
+  
+  OR if you like one liners
+  
+  def solution(number):
+    return sum(x for x in range(number) if x % 3 == 0 or x % 5 == 0)
+           
+  """much more complicated despite being shorter. we use the sum function to add all the x's in the range of number
+    that are divisible by 3 or 5"""
