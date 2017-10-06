@@ -1,0 +1,32 @@
+You are given an array (which will have a length of at least 3, but could be very large) containing integers. 
+The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. 
+Write a method that takes the array as an argument and returns N.
+
+For example:
+
+[2, 4, 0, 100, 4, 11, 2602, 36]
+
+Should return: 11
+
+[160, 3, 1719, 19, 11, 13, -21]
+
+Should return: 160
+
+"""this is a simple problem we just need to find out which number (N) in the list is odd or even. Only one number will be different
+  from the rest. Meaning either all are odd but N which is even. Or all are even but N which is odd. We need this code to work for both 
+  instances. TO SOLVE this I used list comp which is always useful for making a quick list without
+  wasting time using .append. First with list comp we make a list
+  for odd and even numbers. Then we check if each list has the length of 1. The list with the length of 1 is the N that we want to 
+  return. The problem i ran into using list comp is that it returned [N] instead of N. To solve this i used return odd_list[0] or
+  return even_list[0]. The [0] is splicing which allows us to target the first (and only) number in the list which has the length of 1."""
+  
+  
+  
+  
+  def find_outlier(integers):
+    even_list = [n for n in integers if n % 2 == 0]
+    odd_list = [n for n in integers if n % 2 == 1]
+    if len(even_list) == 1:
+        return even_list[0]
+    elif len(odd_list) == 1:
+        return odd_list[0]
