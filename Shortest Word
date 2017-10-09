@@ -1,0 +1,24 @@
+x Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+
+"""This is an easier kata. They want us to iterate through a string and find the word with the shortest length and return that length.
+   ex. s = 'Which word is the shortest". We want our function to return 2. In order to iterate through each word and not each character
+   we have to use .split()."""
+   
+def shortest_word(s):
+  len_list = []
+  for i in s.split():
+    len_list.append(len(i))
+  return min(len_list)
+  
+   
+  OR
+ 
+ """If you are into short one liners. Here we used list comp to make our code shorter
+    list comp allows you to create the list. We included our needs of len(i) being added to the list
+    and we also had to use s.split() again to ensure our function iterated through the words
+    not the characters. MIND YOUR () and YOUR [] MAKE SURE THEY MATCH UP or else you'll throw errors."""
+ 
+ def find_short(s):
+    return min([len(i) for i in s.split()])
