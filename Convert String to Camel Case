@@ -1,0 +1,30 @@
+Complete the method/function so that it converts dash/underscore delimited words into camel casing.
+The first word within the output should be capitalized only if the original word was capitalized.
+
+Examples:
+
+# returns "theStealthWarrior"
+to_camel_case("the-stealth-warrior") 
+
+# returns "TheStealthWarrior"
+to_camel_case("The_Stealth_Warrior")
+
+"""Here we have another camel case problem probably harder than some of the other ones on the beginner level.
+  here we want to remove all '-' and '_'. In addition the first word can only be capital if the orignal word was capital."""
+  
+def to_camel_case(text):
+  if len(text) == 0:
+    return ''
+  word = text.replace('_','-').split('-')
+  return word[0] + ''.join([i.title() for i in word[1:]])
+  
+  """ I want to talk about the conditions in this function. If it is empty we have to return
+    an empty string. The second condition is if the whole string is capitalized then you return it all in caps...otherwise
+    you get "theStealthWarrior" this output does not have the first word capitalized because the input was not in caps.
+    First we set our len condition. Then we replace all the '_' with '-' (it could be done vise versa)
+    Then split each word at the '-' part of the string. The string becomes ['the','steath','warrior'].
+    By doing this word[0] == 'the' instead of word[0] == 't'. Split lets you split the string at a designated point, we chose '-'.
+    Finally we return word[0] which could be 'the' or 'The'  (this allows us to avoid confusing if statements).
+    And add word[0] to ''.join(joins the string with no spaces). word[0] is added to our list of [i.title() for i in word[1:]
+    This little list comp. makes all the i's in word have their first letters capitialized(title does this). And we iterate this 
+    change from word[1:] - which means word[1] onwards to the end."""
